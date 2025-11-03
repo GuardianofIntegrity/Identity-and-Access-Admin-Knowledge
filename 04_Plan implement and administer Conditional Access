@@ -1,0 +1,41 @@
+## Planning Security Defaults
+
+Security defaults provide preconfigured security settings which can:
+
+ - Require all users to register for multifactor authentication
+ - Requiring all admins to perform MFA
+ - Blocking legacy authenication protocols
+ - Requring users to perform MFA when needed. 
+ - Protecthing privileged activites like access to Azure portal.
+
+ # Who should use security defaults:
+
+ - Organizations that want to increase their security posture vut do not know or where to start
+
+ - Organizations utilizing the free tier of Entra ID
+
+ # Who should not use security defaults
+
+ - Organizations currently using Conditional Access policies to bring signals together, make decisions, and enforce organizational policies. 
+
+ - Organizations with Entra ID premium liceneses
+
+ - Organizations with complex security requirements that warrent using Conditional Access
+
+ # Unified multifactor authenication registration
+
+ - All users must sign up for MFA and have 14 days to do so. After 14 days, they will be required to sign up to sign in.
+
+ # Admin accounts requiured to sign in with MFA
+
+ After registration with Multifactor Authentication is finished, the following nine Microsoft Entra administrator roles will be required to perform additional authentication every time they sign in:
+
+- Global Administrator
+- SharePoint Administrator
+- Exchange Administrator
+- Conditional Access Administrator
+- Security Administrator
+- Helpdesk Administrator
+- Billing Administrator
+- User Administrator
+- Authentication Administrator

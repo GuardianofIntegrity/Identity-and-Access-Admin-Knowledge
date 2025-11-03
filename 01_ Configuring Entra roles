@@ -1,0 +1,41 @@
+#Role: Global Admininstrator 
+
+## 🔍 Purpose
+
+The Global Administrator has the highest level of access in Microsoft Entra. This role can manage all aspects of the directory and is typically reserved for a small number of trusted individuals.
+
+## 🛠️ Key Responsibilities 
+
+- Create, edit, delete users, groups, and roles
+- Assign admin roles to other users
+- Configure identity governance, security settings, and compliance policies
+- Access and manage all Microsoft 365 services tied to the tenant
+- Reset passwords for all users and admins
+
+## 🔏 Permissions & Scope
+- Full access to all Entra features and services
+- Can elevate access for Priviledged Identity Management (PIM)
+- Can delegate other admin roles, which includes making custom roles
+- Should be protected with MFA and monitored via Conditional access 
+
+## ⚠️ Best practices
+
+- Limit to 2-4 users per tenant
+- Use PIM for just in time access
+- Montior Sign ins and audit logs regularly
+- Avoid using Global admin for daily tasks - assign least privilege roles instead.
+
+## 🗃️ Related Tools
+
+- Microsoft Entra Admin Center
+- Microsoft 365 Admin Center
+- Powershell (MSgraph & AzureAD modules)
+- Mictosoft Defender for Identity
+
+## 🌟 Important notes
+
+- Global admin overrides all other roles
+- Required for initial setup for Entra ID and tenant-wide configurations
+- Often used in break glass scenarios
+
+

@@ -1,0 +1,77 @@
+## Configure custom Azure roles
+
+- Ways to create custom role from the user Interface:
+
+  - Assign a custom role to a user, group, or other resource the same needed for built in.
+  - Admins control the capabilites of the custom role.
+  - Least privilege allows one to pick needed capabilites.
+
+  Steps to create custom role:
+
+  - Admin center
+  - From Identity menu, select roles and administration
+  - Select +new custom role
+  - Then name and assign the capabilites needed 
+
+ ## Create and configure managed identities
+
+   - Developers can securely store the secrets in Azure Key Vault
+   - Mangaged identity supports authentication via Micosoft Entra Id
+   - Can obtain tokens without having to manage any credentials
+
+## Benefits of using managed identities
+   - You do not need to manage credentials. 
+   - You can use managed identities to authenticate to any resource that supports Microsoft Entra, your own apps, and they can be used without any extra cost
+
+## Types of managed identity
+  System assigned:
+   - An identity is created in Microsoft Entra ID. The identity is tied to the lifecycle of that service instance. When the resource is deleted, Azure automatically deletes the identity for you. By design, only that Azure resource can use this identity for you. By design, only that Azure resource can use this identity to request tokens frok Entra ID.
+   - Allows you to creare secure access without having to store secrets
+
+  User-assigned:
+   - Create a managed identity as standalone Azure resource.
+   - You can create a user-assigned managed identity and assign it to one or more instances of an Azure service. For user-assigned managed identities, the identity is managed separately from the resources that use it.
+
+## Managed Identity in Azure portal for an App service
+   Steps to create a basic app: 
+   - Build your App
+   - Open the App in Azure portal
+   - Select Identity from the menu then select either system assigned or user assigned
+   - Select the +Add item and complete the wizard
+
+## Analyze Azure role permissions
+
+  - Permissions: Consent or authorization to preform a specific action.
+  - Permissions can range from viewing settings to being able to change settings
+  
+## Sampe of the default permissions for users?
+
+Members Users:
+
+- Enumerate list of users and their contacts
+- Invite guest users
+- Can create Security and Microsoft 365 Groups
+- Register new applications
+
+Guest users: 
+- read own properties
+- Invite guest users
+- can search for nonhidden groups by name
+- read properties of registered and enterprise applications
+
+## Controlling permissions:
+
+= Can use the user settings inside of microsoft entra ID- manage menu to restrict or control the defaults permissions of the default users.
+- Use roles and admins to add new permissions onto your users and group. 
+
+## Configure Azure Key Vault RBAC polcies 
+
+- Can grant access to Azure Key Vault using either role based access control.
+
+## Assign a Key Vault access policy 
+
+- A Key vault access policy determines whether a user, app, or group, can perform operations on Key Vault secrets, keys, and certs. 
+- Can assign access policies using the Azure Portal, the Azure CLI, or Azure PowerShell. 
+- Key vault supports up to 1024 access policy entries, with each entry granting a distinct set of permissions to a particular security principal.
+
+

@@ -1,0 +1,46 @@
+Purpose: Learn and manage how to enable secure external collaboration. 
+
+Goals:
+
+- Manage external collabortion settings in Microsoft Entra ID
+
+- Invite external users (individually or in bulk)
+
+- Manage external user accounts in Microsoft Entra ID
+
+- Configure identity providers (social and SAML/ WS-fed)
+
+- Explore  Microsoft Entra Verified ID
+
+## Define a guest user
+
+- Microsoft Entra B2B collabortion is a feature within Microsoft Entra External identities.
+
+- B2B collaboration: can securely share your company's applications and services with external users, while manintaing control over your own corporate data. 
+
+- Work safely and securely with external partners, large or small even if they dont have entra ID or an IT department.
+
+## How guest users join Entra tenant
+
+- Uses  simple invitation and redemption process lets partners use their own credentials to access company resources.
+
+- Can enable self service sign up user flows to let external users sign up for apps or resources themselves. 
+
+Summary: 
+
+Allows for external employees who are vendors etc to sign up for access without having to have a account made by IT department.
+
+#B2B (Business to Business)
+
+- B2B collaboration is a capability of Microsoft Entra External identities that lets you collaborate with users and partners outside an organization.
+
+- An external user is invited to sign in to your Microsoft Entra org using their own credentials.
+
+- The B2B collab user can then access the apps and resources shared with them. 
+
+- A user object is created for the B2B collaboration user in the same directory as other employees. 
+
+A B2B collaboration user objects have limited privileges in your directory by default, and they can be managed like employees, added to groups and so on. 
+
+
+

@@ -1,0 +1,83 @@
+#Purpose: Deploying and monitoring enterprise applications to Azure solutions can ensure security. 
+
+Goals: 
+ - Implement token customizations
+ - Implement and configure consent settings
+ - Integrate on prem apps by using microsoft Entra app proxy
+ - Integrate custom Saas apps for SSO
+ - Implement application user provisioning
+ - Monitor and audit access/ Sign on to Microsoft Entra ID integrated enterprise apps
+
+ # Implement token customizations
+
+ - Can specify the lifetime of a token issued by Microsoft Identity Platform. 
+ - Can set token lifetimes for: all apps in your organization, for a mutltitenant (mutiple organizations), specific service principal in your organization.
+
+ - What is a policy object?
+
+   - Represents a set of rules that are enforced on individual applications or on all applications in an organization. 
+
+   - Each policy type has a unique structure, with a set of properties that are applied to objects to which they're assigned.
+
+ # Configure authentication session management with Conditional Access
+
+  - In complex deployments, organizations might need to restrict authentication sessions. Some reasons would include:
+
+    - Resource access from unamanaged devices or shared devices
+    - Access to sensitive information from an external network 
+    - High impact users
+    - Critical business applications
+
+
+ - Conditonal Access controls allows policies to be created that target specific use cases within an organization without affecting users. 
+
+
+ # Configure optional claims as part of your token
+
+  - App developers can use optional claims in their Microsoft Entra ID applications to specify which claims they want in tokens sent to their applications.
+
+     - Use optional claims to:
+
+       - Select other claims to include in tokens for your application.
+       - Change the behavior of certain claims that Microsoft Identity platform returns in tokens.
+       - Add access custom claims for your application.
+
+
+ - Note some Tokens are not availble in 2.0
+
+# Implement and configure settings
+
+ - Can integrate your applications with Microsoft identity platform to allow users to sign in with their work or school account and access the organization's data to deliver rich data driven experiences.
+
+ - Before an application can access the organization's data, a user must grant the application permissions to do so. Different permissions allow different levels of access. 
+
+ - All users can consent to applications for permissions that do not require admin consent.
+    
+    - Example: a user can consent to allow an app to access their mailbox. However, they cannot consent to allow an app unfiltered access to read and write to all files in your organization. 
+
+
+ - Only allow user consent for apps published by a verified publisher.
+
+
+ 
+    
+# Integrate on-premises app with Entra App Proxy
+
+- Application Proxy is a feature of Enrta ID that enables users to access on premises web applications from a remote client.
+
+- App Proxy includes both the app proxy connector that runs in the cloud and the app proxy that runs on an on premsises server. 
+
+- Entra ID, the proxy service, and the app proxy connector work together to securely pass the user sign on token from Entra ID to the web application. 
+
+- After a SSO to Entra ID, Users can access both cloud and on premises applications through an external URL or an internal application portal. 
+
+- For example: Application Proxy can provide remote access and SSO to remote desktop, Sharepoint, Teams, Tableau, Qlik, and line of business (LOB).
+
+- App Proxy works with:
+  - Web apps that use Intergrated Web Authentication for Authentication
+  - Web apps that use form based or header based access.
+  - Web APIs that you want to expose rich applications on different devices.
+  - Applications hosted behind a remote desktop gateway
+  - Rich client apps that are intergrated with Microsoft Authentication Library (MSAL)
+
+  

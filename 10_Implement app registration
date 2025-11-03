@@ -1,0 +1,90 @@
+Purpose: Explore how to implement app registration. Line of business developed in house need registration in Microsoft Entra ID and assigned to users for a secure Azure solution.
+
+# Goals:
+
+- Plan the line of business application registration strategy
+- Implement App registrations
+- Configure app permissions
+- Establish and maintain an application governance process
+
+# Plan the Line of Business Application Registration 
+
+- Reasons app integrate with Entra ID as it provides:
+
+    - Application authenication and authorization
+    - User authentication and authorization
+    - Single sign on (SSO) using federation or password
+    - User provisioning and synchronization
+    - Role based access control: Use the directory to define applications roles to perform role based authortization checks in an application
+    - OAuth authorization services: Used by Microsoft 365 and other Microsoft applications to authorize access to APIs/ resources.
+    - Application publishing and proxy: Publish an application from a private network to the internet.
+    - Directory Schema extension attributes: Extend the schema of service principal and use objects to store extra data in Entra ID. 
+
+# What are applications objects and where do they come from?
+
+ - You can manage application objects in the Azure portal through the app registrations experience. Application objects define and describe the application to Microsoft Entra ID, which enables your identity provider to know how to issue tokens to applications based on its settings.
+
+ - The application object will only exist in its home directory, even if it is a multitenant application supporting service principals in other directories. 
+
+ - The application object includes any of the following (as well as additional information not mentioned here):
+
+    - Name, logo, and publisher
+    - Redirect URLs
+    - Secrets (Symmetric and/or asymmetric keys used to authenticate the application)
+    - API dependencies (OAuth)
+    - Published APIs/resources/Scopes (OAuth)
+    - App roles (RBAC)
+    - SSO metadata and configuration
+    - User provisioning metadata and configuration
+    - Proxy metadata and configuration
+
+ 
+ - Ways to create application objects through multiple pathways, including:
+
+    - Application registration in Azure Portal
+    - Create a new application using Visual Studio and configuring it to use Microsoft Entra authentication
+    - When an admin adds an application from the app gallery (which will also create a service principal)
+    - Using the Microsoft Graph API or Powershell to create a new application.
+    - Many other pathways, including various developer experiences in Azure and in API explorer experiences across developer centers. 
+
+# Who has permission to add applications to my Microsoft Entra instance?
+
+
+1. Role-Based Control
+You can assign roles like Application Administrator and Cloud Application Administrator to manage app registrations and permissions.
+
+2. Default User Permissions
+By default, all users in your directory can:
+
+Register application objects they’re developing
+
+Consent to apps accessing their organizational data
+
+3. Service Principal Creation
+When a user first connects and consents to an app, it creates a service principal in the directory.
+
+If the service principal already exists, the consent info is stored there.
+
+4. Self-Service Deployment
+Users can deploy apps without admin involvement, unlike older AD FS setups.
+
+This empowers developers and reduces admin overhead.
+
+5. Security and Visibility
+Organizations now have better visibility into:
+
+Which apps are using the directory
+
+What data is being shared
+
+This is a security win, even if user-driven consent seems risky at first.
+
+6. Consent Boundaries
+Users can only consent to apps accessing their own data.
+
+Admins must approve apps requesting broader or sensitive permissions.
+
+7. Auditing
+Every app registration and consent event is auditable in the Azure portal.
+
+You can track who added what and what data was shared

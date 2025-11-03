@@ -1,0 +1,51 @@
+# Purpose: Enterprise app deployment enables control over which users can access the apps, log into apps with single sign on, and provide integrated usage.
+
+- CASB (Cloud Access Security Broker) - An on prem or cloud based security policy enforcement point. It is placed to interject enterprise seceurity policies as the cloud - based resources are accessed. 
+
+- MDCA (Microsoft Defender for Cloud Apps): The Microsoft Implementation of CASB service to protect data services, and applications with enterprise policies. It provides supplemental reporting and analytics services. 
+
+# Microsoft Defender for Cloud Apps
+
+- Moving to the cloud increases flexibility for both IT and employees.
+
+- Introduces new challenges and complexities for keeping organization secure.
+
+# Best way to get full benefit of cloud app and services, an IT team with the right balance of supporting access while maintaining control to protect critical data. 
+
+- Micosoft Defender for Cloud Apps (MDCA) is a Cloud Access Security Broker (CASB) that supports various deployment modes, including log connection, API connectors, and reverse proxy. 
+
+Benefits: Rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all Microsoft and third party cloud services.
+
+## Architecture
+
+- Microsoft Defender for Cloud Apps integrates visibility with cloud by:
+
+  - Using cloud discovery to map and identify your cloud enviornment and the cloud apps your organization is using.
+
+  - Sanction and de-authorizing apps in your cloud.
+
+  - Using easy to deploy app connectors that take advantage of provider APIs, for visibility and governance of apps connected. 
+
+  - Using Conditional Access APP control protection to get real time visibility and control over access and activites within cloud apps. 
+
+  - Help with continous control by setting and continually fine tuning policies. 
+
+# Cloud Discovery
+
+ - Uses traffic logs to dynamically discover and analyze the cloud apps your ogranziation is using. To create a snapshot report of your organization's cloud use, manually upload log files from your firewalls or proxies for analysis.
+
+ - To set up continous reports, use Microsoft Defender for Cloud Apps log collectors to periodcally forward your logs.
+
+# Sanctioning and unsanctioning an app
+
+ - Can use Microsoft Defender for Cloud Apps to sanction or unsaction apps in an organization by using the cloud app catalog. The Microsoft team of analysts has an extensive and growing catalog of more than 16,000 cloud apps that are ranked and scored based on industry standards.
+
+# Active Directory Federation Services
+
+- Entra ID can integrate with AD FS to provide Single Sign-On (SSO) across both on-prem and cloud apps. 
+
+# Implement access managment for apps
+
+- Can add applications via Microsoft Entra App gallery. 
+
+- Can assign owner to manage app  and limit who can manage said apps.

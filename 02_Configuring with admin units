@@ -1,0 +1,28 @@
+## Administrative Units
+
+- Containers that restrict permissions in a role to any portion of that is defined by an organization
+
+# Developing a delegation model:
+
+- Define the needed
+- Delegate App Admin
+- Grant the ability to register applications
+- Delegate app owenership
+- Develop a security plan
+- Secure admin roles
+- Establish emergency accounts
+- Secure admin roles
+- Make privileged elevation temporary
+
+# Delegate app admin
+
+- Remember after completed needed tasks as the Global Admin user it is fine to offload user to a less privileged role to improve security posture and reduce the potential for mistakes.
+
+ - The most priviledged application admins are the app admin role, which grants: 
+ 
+   - the ability to manage all applications in the directory
+   - single sign on settings
+   - user and group assignments and licensing
+   - Application Proxy settings and consent
+
+- The Cloud App Admin which grants all the abilities of the application admin, except it does not grant access to app proxy.

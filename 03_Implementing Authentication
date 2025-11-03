@@ -1,0 +1,65 @@
+## What is Microsoft Multifactor authentication
+
+- Protecting cloud assest is the main goal for security.
+- Social engineering involving login in credentials is one way for unauthorized users get access to systems.
+
+Features to mitigate risks:
+
+  - Password complexity rules: rules that force to generate harder to guess passwords
+
+  - Password expiration rules: Force users to change their passwords on a periodic basis and avoid using previously used passwords
+
+  - Self - Service password reset (SSPR): allows users to self serve and rest their passwords if they forget it without inovolving an IT department. 
+
+  - Microsoft Entra ID Protection: To help protect an organizations identities. Can configure firsk basked policies that respond to risky behaviors. These policies can either automatically block the behaviors or initiate remediation, including requiring password changes.
+
+  ## Azure Authentication Methods
+
+  Method - Services that can use them
+
+  Password - Entra Multifactor Authenication and SSPR
+  Security Questions - SSPR
+  Email Address - SSPR
+  Windows Hello for Business - Entra multifactor and SSPR
+  FID02 Security Key - Entra multifactor and SSPR
+  Microsoft Authenicator app - Entra authenication and SSPR
+  OATH Hardware Token - Entra MFA and SSPR
+  OATH software Token - Entra MFA and SSPR
+  Text message - Entra MFA and SSPR
+  Voice call - Entra MFA and SSPR
+  App passwords - Entra MFA and SSPR
+
+  Password: cannot disable the feature
+
+  Security questions:
+  Only available for non admin accounts that  use Self Service Password
+    - Azure stores security qeustions privately and in the security enhanced manner on a user objext in the directory. Only users can answer the questions and only during registration. An admin cannot read or change a user's questions or answers. 
+    
+    - Azure provides 35 predefined questions, which are all translated and localized based on the brower locale.
+
+    - Questions can be customized by using the admin interface. Azure displays them in the langauge entered. The max length is 200 characters
+
+  Email address:
+    - Can only be used with SSPR. Avoid using emails that do not require the users Entra Password to access it. 
+
+  FIDO2: A security key is used nad is often a USB device.
+
+  MFA App:
+
+  - The MFA app helps prevents unauthorized users. It pushes a notification tha helps stops fraudlent transactions to your smartphone or tablet. Users view the notifications, and confirm or deny the request.
+
+  - Users can use the MFA app or a third party app as the software token to generate an OATH verifications code. After the users enters the username and password, the user enters the code provided by the app on the sign in screen. The verification code provides a second form of authenications. Users can also set up the MFA app to deliever push notifications.
+
+  OATH hardware tokens: 
+    - OATH is an open standard that specifies how to generate one time password codes. Microsoft Entra supports the use of OATH TOTP SHA-1 tokens of the 30 seconds or 60 second variety.
+
+    - Tokens can come from vendor of choice. Secret keys are limited to 128 characters, which might be compatible with all tokens. 
+
+    OATH Software Tokens:
+     - Apps such as MFA app and other authenticator apps. Entra ID generates the sercet key, or seed, that is input into the app and used to generate each OTP. 
+
+     Text message:
+
+     Azure sends a verification code to a mobile phone using SMS. The user must enter the code into the brower within a specific time period to continue. 
+
+    Montior activity of sign in under Authentication methods and then activity. 

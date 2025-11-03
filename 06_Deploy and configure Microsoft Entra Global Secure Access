@@ -1,0 +1,123 @@
+## Global secure Access goals:
+
+- Define Global secure access and its components
+- Explore deployment and configuration of Microsoft Entra Inernet access
+- Explore deployment and configuration of Microsoft Entra Private access
+- Use the Global Secure access Dashboard to monitor systems
+- Configure Remote Networks
+- Create conditional access policies to protect your network, data, and applications. 
+
+# Explore Global Secure Access
+
+ - Microsoft Entra Internet Access and Microsoft Entra Private access are a solution that merges network, identity, and endpoint access controls so apps or resources can be securely accessed anywhere.
+
+ - Microsoft Entra Internet Access
+
+   - Secures access to Microsoft services, SaaS, and public internet apps while protecting users, devices, and data against internet threats. 
+
+   - Secure access to public internet apps through the identity-centric, device-aware, cloud-delivered Secure Web Gateway (SWG) of Entra Internet Access.
+
+     - Key Features:
+       - Prevent stolen tokens replays with the compliant network check-in Conditional Access
+       - Apply universal tenant restrictions to prevent data exfiltration.
+       - Enriched logs with network and device signals
+       - Improve the precision of risk assessments on users, locations, and devices.
+       - Acquire network traffic from the desktop client or from a remote network.
+
+       - Dedicated public internet traffic forwarding profile.
+       - Protect user access to the public internet while using Microsoft secure web gateway.
+       - Regulate access to websites based on their content categories and domain names.
+       - Apply universal Conditional Access policies for all internet destinations. 
+
+ - Microsoft Entra Private Access:
+
+  - Provides users access to private corporate resources. Entra private access builds on the capabilities of Entra application proxy and extends access to any private resource, port, and protocol. Remote users connect to private apps across hybrid and multicloud environments, private networks, and data centers from any device and network without requiring VPN. The service offers per app adaptive access based on conditional access.
+
+
+  - Key Features:
+    - Zero Trust based access to a range of IP addresses and/or Fully Qualified Domain Names (FQDNs) without requiring a legacy VPN
+    - Modernize legacy app authentication with Conditional Access
+    - Provide a seamless end-user experience by deploying side-by-side with your existing non-Microsoft SSE solutions. 
+    
+
+## Deploying and configure Microsoft Entra
+
+- Steps for getting Microsoft Entra Internet Access
+  
+   1. Enable the Microsoft Traffic forwarding profile: 
+
+      With the Microsoft profile enabled, Microsoft Entra Internet Access acquires the traffic going to Microsoft services, like exchange online and Sharepoint Online.
+  
+   2. Install the Global Secure Access Client on end user devices: 
+
+      Download and install the client app to capture and control access from the client.
+
+   3. Enable tenant restrictions:
+
+      Configure which tenants/ organizations are allowed to be block.
+    
+   4. Enable enhanced Global Secure Access signaling and conditional access:
+
+      Use Conditional Access and Global Secure Access to prevent attacks.
+
+- Steps for getting Entra Private Access
+
+   1. Configure a Entra Private network connector and connector group:
+      
+      Create connection between an on premises server and Global Secure Access.
+  
+   2. Configure Quick Access to Private Resources:
+
+     Define specific fully qualified domain names (FQDNS) for IP addresses of private resources to include in Entra Private Access
+
+  3. Enable the Private Access Traffic forwarding profile:
+
+     Turn on Private Access and link from on premises router to remote networks.
+  
+  4. Install and configure the Global Secure Access Client on end user    devices: 
+
+     Deploy the client software onto devices so they can access the traffic
+     flow.
+
+- Configure the Windows Server for connectors
+  
+  - Has requirements of running Windows Server 2012 R2 or Later. 
+  - The private connector is installed on the server.
+  - The conncetor server needs to connect to Entra Private Access Service or application proxy service and the private resources or applications that is planned to be published. 
+
+
+- Open ports for outbound:
+
+  - Port 80: Downloading certificate revocation lists (CRLs) while validating the TLS/SSL certificate
+
+  - Port 443: All outbound communication with Application Proxy Service
+
+## Create remote networks for use with Global secure access
+
+ - Remote networks are remote locations 
+ - Setting up remote networks connects users in remote locations to Global Secure Access.
+ - Once a remote network is configured, assign a traffic forwarding profile to manage your corporate network traffic.
+ - Global Secure Access provides remote network connectivity so you can apply network security policies to outbound traffic.
+
+Steps to set up Remote network
+
+ - Basics: 
+  Define the name of your remote netowrk and region where you want to connect.
+
+- Connectivity:
+ Enter the data about your on prem router, where the signal comes from.
+
+- Traffic Forwarding: 
+ Add a traffic forwarding profile to define the type of traffic network to allow through.
+
+ - Review configuration: 
+
+ In the step your confirm the setup of the remote network and gather settings you need to configure in the on premises router.
+
+ - Setup on premises router:
+
+ Use the management console of your on-premises router to enter the microsoft connectivity setting from previous step. 
+
+
+
+
