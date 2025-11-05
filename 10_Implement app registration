@@ -77,7 +77,7 @@ Which apps are using the directory
 
 What data is being shared
 
-This is a security win, even if user-driven consent seems risky at first.
+This is aS security win, even if user-driven consent seems risky at first.
 
 6. Consent Boundaries
 Users can only consent to apps accessing their own data.
@@ -87,4 +87,166 @@ Admins must approve apps requesting broader or sensitive permissions.
 7. Auditing
 Every app registration and consent event is auditable in the Azure portal.
 
-You can track who added what and what data was shared
+You can track who added what and what data was shared.
+
+# Grant tenant-wide admin consent
+
+ - For apps in organizations developed or for those that are registered directly in Microsoft Entra Tenant, Tenant wide admin consent can be granted from App registrations in the Azure portal.
+
+ - Granting tenant-wide admin consent requires one to sign in as a user that is authorized to consent on behalf of the organizaion.
+   
+ - Includes Privileged Role Administrator. A user can also be authoorized to grant tenant wide consent if they are assigned a custom directory role that includes the permission to grant permissions to applications. 
+
+# Grant admin consent in Enterprise apps
+
+- Tenant wide admin consent can be granted through Enterprise applications if the application has already been provisioned in the tenant.
+
+- Steps to complete: 
+
+1. In Microsoft Azure, browse to Entra ID, then Enterprise applications, and then Demo app.
+
+2. On the Demo app screen, in left navigation, under security, select Permissions.
+
+3. Under Permissions, select Grant admin consent. 
+
+4. When prompted, sign in using Privileged Role Administrator account.
+
+5. In the Permissions requested dialog box, review the information and then select accept. 
+
+# Construct the URL for granting tenant wide admin consent
+
+- When granting tenant wide admin consent using either method above, a window opens from the Azure portal to prompt for tenant wide admin consent. If you know the client ID of the application (application ID), you can build the same URL to grant tenant wide consent.
+
+     1. The tenant wide admin consent URL follows the following format:
+
+     https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id} where:
+
+     - {client - id} is the application's client ID (also known as app ID)
+
+     - {tenant-id} is your organization's tenant ID or any verified domain name.
+
+     2. As always, carefully review the permissions an application requests before granting consent.
+
+# Admin restricted permissions
+
+- User.Read.All, Directory.ReadWrite.All, and Groups.Read.All require tenant-wide admin consent and cannot be granted by regular organization users.
+
+- Admin consent endpoint must be used to requst these permissions from a company administrator, especially for high privilege delegated or application level access.
+
+- Delegated vs application permissions:
+
+Delegated permissions apply to all users once granted; application permissions are granted directly to the app, typically for background services. 
+
+#Using the Admin consent endpoint:
+
+- Authorized vs Admin Consent Endpoint:
+
+The authorized endpoint can prompt a Company admin to grant tenant wide consent, but application permissions require the dedicated admin consent endpoint. 
+
+
+- Admin consent endables broad access:
+
+Once granted, the app can access permissions for all users in the tenant, including the admin restricted scopes.
+
+- This is a high privilege operation and should only be used when truly necessary for an apps functionality. 
+
+# Implement Application authorization 
+
+- Application roles are used to assign permissions to users. You define app to permissions to users. You define app roles by using the Azure portal.
+
+    - When a user signs into application, Microsoft Entra ID emits a roles claim for each role that user has been granted individually to the user and from their group membership.
+
+    - There are two ways to declare app roles by using the Azure portal:
+        - App roles UI, then preview
+        - App manifest editor
+
+# Steps to add app roles to an application and recieve tokens.
+
+- Apps roles can be delcared using the app roles UI.
+
+- **Important**: The app roles portal UI feature is in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features might be unsupported or have constrained capabilities. 
+
+- To create an app role by using Azure portal user interface: 
+
+ 1. Sign in to the Microsoft Entra admin center using an Admin account.
+ 
+ 2. Open the portal menu and then select Identity.
+
+ 3. On the Identity meny, under Applications, Select App Registrations.
+
+ 4. Select App roles, and then select **Create app role**
+
+ 5. In the Create app role pane, in the Display name box, enter Survey Writer.
+
+ 6. Under Allow member types, select User/Groups.
+
+ 7. In the Value box, enter Survey.Create.
+
+ 8. In the Description box, enter Writers can create surveys.
+
+ 9. Notice that the description is a mandatory field.
+
+10. Verify the Do you want to enable this app role is selected and then select Apply.
+
+# Assign users and groups to roles
+
+Once you've added app roles in your application, you can assign users and groups to the roles. Assign users and groups to roles through the portal's UI or programmatically using Microsoft Graph. When the users assigned to the various app roles sign in to the application, their tokens will have their assigned roles in the roles claim.
+
+To assign users and groups to roles by using the Azure portal:
+
+1. Sign in to the Microsoft Entra admin center.
+
+2. In the Identity navigation menu on the left, open 
+Applications select Enterprise applications.
+
+3. In the All applications list, select Demo app.
+
+4. This app was created in an earlier exercise.
+
+5. Under Manage, select Users and groups.
+
+6. On the menu, select + Add user/group.
+
+7. On the Add Assignment dialog, select Users and groups.
+
+8. A list of users and security groups is displayed. You can search for a certain user or group, as well as select multiple users and groups that appear in the list.
+
+9. After you have selected users and groups, select Select.
+
+10. When using the Select a role assignment, all the roles that you've defined for the application are displayed.
+
+11. Choose a role and then select Select.
+
+12. Select Assign to finish the assignment of users and groups to the app.
+
+13. Confirm that the users and groups you added appear in the Users and groups list.
+
+# Manage and Monitor application by using app governance
+
+- Cyberattack risk: Apps in on premises and cloud environments are increasingly exploited for privilege escalation and data exfiltration, making visibility into app behavior critical.
+
+- App Governance for Microsoft 365. This Defender for Cloud Apps add on monitors OAuth-enabled apps using Microsoft Graph APIs, offering insights, policy enforcement, and automated alerts. 
+
+- Core capabilities: It provides centralized dashboards (Insights), policy controls (Governance), anomaly alerts (Detection), and timely response tools (Remediation).
+
+# Enable Defender for Cloud Apps:
+
+
+Enable Defender for Cloud Apps sync
+To enable app governance sync with Defender for Cloud Apps, follow these steps:
+
+- Ensure Office 365 is connected in Defender for Cloud Apps.
+
+- Ensure Office 365 Microsoft Entra ID apps are enabled.
+
+- Go to your Defender for Cloud Apps portal – https://portal.cloudappsecurity.com
+
+- Select the gear icon (top-right corner) and select Settings.
+
+- Under Threat Protection, select App Governance.
+
+- Select Enable App Governance integration, and then select Save. To verify the integration with Defender for Cloud Apps is active, look for the app governance policies listed below to appear in Defender for Cloud Apps. The new policies might take few minutes to appear once integration is enabled.
+
+Microsoft 365 OAuth app Reputation
+Microsoft 365 OAuth Phishing Detection
+Microsoft 365 OAuth App Governance
