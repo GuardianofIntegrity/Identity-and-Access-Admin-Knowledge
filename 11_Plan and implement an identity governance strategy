@@ -1,0 +1,203 @@
+# Define acess packages
+
+# Why use entitlement management? 
+
+   - Enterprises can face challenges when managing employee access to resources such as:
+
+     - Users do not know what access they should have, and they can have difficulty finding those who can grant access.
+
+     - Users having access longer than required for business purposes. 
+
+# What doees Microsoft Entra do?
+ 
+  - Has an entitlement management that can help organizations ensure that everyone has access to the correct directories and that all user access is managed consistently. 
+
+# What are the capabilites of entitlement management? 
+
+1. Delegate to non admins the ability to create access packages
+
+  - These access packages contain resources that users can request, and the delegated access package managers can define policies with rules for which users can request, who must approve their access, and when access expires. 
+
+2. Select connected organizations whose users can request access
+
+  - When a user is not in a directory and requests access and is approved, they are automatically invited into the directory and assigned access.
+
+  - When access expires, if they have no other access package assignments, their B2B account in the directory can automatically be removed. 
+
+  # Important terminology 
+
+  - Access package:
+    A bundle of resources that a team or project needs and is governed by policies.
+
+  - Access request:
+    A request to access the resources in an access package. The request should go through an approval workflow. If approved, the requesting user recieves an access package assignment. 
+
+  - Assignement:
+    An assignemnt of an access package ensures the user has all the resources roles of that access package. Access package assignemnts typically have a time limit before they expire. 
+
+  - Catalog: 
+
+    A container of related resources and access packages. They are used for delegation so non admins can create their own access packaages. Catalog oweners can add resources they own to a catalog.
+
+  - Catalog creators: 
+   A collection of users that are authorized to create new catalogs. When a non admin user is authorized to be a catalog creator, they are authorized to become the owner of that catalog. 
+
+   - Conntected organization:
+
+   An external Microsoft Entra directory or domain that you have a relationship with. The users from a connected organization can be specificed in a policy as being allowed to request access. 
+
+   - Policy:
+    
+    A set of rules that define the access lifecycle such as how users get access, who can approve, and how long users have access.
+
+    It is linked to an access package. There can be one for employees and a second for external users. 
+
+    - Resource:
+    
+    An asset such as an office group, a security group, an app, or a sharepoint online site, with a role that a user can be granted permissions to. 
+
+    - Resource Directory:
+    A directory that has one or more resources to share.
+
+    - A resource role:
+
+    A collection of permissions assoicated with and defined by a resource. A group normally has two roles: Member + owner. 
+     
+## What are access packages and what resources can I manage with them? 
+
+An Access package is a bundle of resources with access a user needs to work on a project or perform their task. 
+
+They are used to govern access for internal employees and users outside of an organization.
+
+## Ways to manage access with entitlment management: 
+
+- Membership of Microsoft Entra Security Groups
+- Membership of Micrsoft 365 Groups and Teams
+- Assignment to Microsoft Entra enterprise applications including Saas apps and custom intergrated applications that support federation/ SSO/provisioning.
+- Membership of sharepoint online sites. 
+
+
+Can also so:
+
+- proivde licenses for Microsoft 365 by using security groups in an access package and configure group based licensing for that group.
+
+- Access to manage Azure resources by using a security group in an access package and creating an Azure role assignment for that group.
+
+- Access to manage Microsoft Entra roles by using groups assignable roles in an access package and assigning a role to that group. 
+
+## When should access packages be used:
+
+- Employees need limited access for a particular task. One might user group based licensing and a dynamic group to ensure all employees have an Exchange Online mailbox
+
+- Use access package for situations in which employees need additional access such as to read departmental resources from another department.
+
+- Access requires the approval of an employee's manager or other designated individuals.
+
+- Department wish to manage their own access and policies for their resources for resource without IT involvement.
+
+- Two or more organizations are collaborating on a project and as a result, multiple users from one organization will need to be brought in via Microsoft B2b to access another orgnizations resources.
+
+## Steps to create a catalog:
+
+- A catalog is a container of resources and access packages. 
+
+- It is created to help group resources and access.
+
+1. Sign in as admin center as an Admin
+
+2. From Entra ID home screen select **ID Governance**
+
+3. In the left menu, under Entitlement management, select **Catalogs**
+
+4. Open the top menu, select + **New Catalog**
+
+5. In the New catalog pane, in the name box put for example "Marketing"
+
+6. In the description box, enter "For marketing department users. Users will see this information in an access package details.
+
+7. Enable for external users allows users in selected external directories to be able to request access packages in this catalog. No changes will be made to this setting.
+
+8. Under Enabled, select NO. Can choose to enable the catalog for immediate use. Can also disable if it is intended to stage it or keep it unavailable. 
+
+9. Click create.
+
+## Adding resources to a catalog:
+
+To include a resource in an access package, the resource must exist in a catalog. The type of resources one can add are: Groups, applications, and sharepoint Online sites. The groups can be cloud created Microsoft 365 groups or Cloud created Microsoft Entra Security Groups.
+
+- The applications can be Entra apps including Saas apps and your own applications federated to Microsoft Entra ID. The sites can be sharepoint Online sites or Sharepoint Onlie site collections.
+
+**Steps**:
+
+1. Open the Identity Governance Screen, and if needed select catalogs.
+
+2. In the catalogs list, select Marketing
+
+3. In the left navigation, under **Manage** select **Resources**
+
+4. On the menu, Select + Add resources
+
+5. In the Add resources to catalog screen, review available options?
+
+6. To add a resource to the catalog, select a resource category, then select a resource from that category. 
+
+7. When finished, select **Add**
+
+## Add more catalog oweners:
+
+1. In the catalog, in the left navaigation menu, select roles and admins. 
+
+Can also be found in Azure portal, browse to Entra ID, then ID Governance, then Catalogs, and then select Marketing.
+
+2. On the top menu, review the available roles and then select **+ Add owener**
+
+3. Select members pan, select the admin account and then select **select**
+
+## Edit + Delete
+
+To edit or delete go to the ID Governance. Then select overview to edit 
+
+In overview, one can also find the delete on the top menu. 
+
+In the Delete dialog box, review the info then select yes.
+
+# Configure and manage connected organizations
+
+- A connected orgaization is another organization that you have a relationship. 
+
+- Entitlement management allows users to join from a connected orgainzation.
+
+## Add connected organization:
+
+1. In Microsoft Entra Admin, Select ID Governance and then **Entitlement management**.
+
+2. In the left pane, select **Connected organizations** and then select **+ Add connected organization.**
+
+3. Select **Basics** tab. and then enter the display name and description of the organization.
+
+  - The state will automatically be set to configured when you create a new connected organization. For more information about state properties, see State properties of connected organizations/
+
+4. Select **Directory + Domain** tab, and then select **Add directory + domain**
+
+ - The Select directories + domains pane opens.
+
+5. In the search box, enter a domain name to search for the Microsoft Entra Directory or domain. Be sure to enter the entire domain name.
+
+6. Select **Add** to add the Microsoft Entra directory or domain. Currently, you can add only one directory or domain per connected organization. 
+
+7. After one has added the directory or domain, select Select.
+
+  - The organization appears in the list.
+
+8. Select the **Sponsors** tab, then add the optional sponsors for this connected organization. These people will be the point of contact for the relationship with this connected organization.
+
+9. Select Review + create tab, review your organizations settings, and then select Create. 
+
+
+## Review Assignments with PowerShell
+
+Connect-MgGraph -Scopes "EntitlementManagement.Read.All"
+Select-MgProfile -Name "beta"
+$accesspackage = Get-MgEntitlementManagementAccessPackage -DisplayNameEq "Marketing Campaign"
+$assignments = Get-MgEntitlementManagementAccessPackageAssignment -AccessPackageId $accesspackage.Id -ExpandProperty target -All -ErrorAction Stop
+$assignments | ft Id,AssignmentState,TargetId,{$_.Target.DisplayName}
