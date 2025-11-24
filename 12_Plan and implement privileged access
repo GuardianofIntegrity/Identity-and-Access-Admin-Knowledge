@@ -1,0 +1,125 @@
+
+# Goal: 
+
+Explore how to use Privileged Idenity Management (PIM) to protect data and resources.
+
+- Learn how to create an access strategy. Then configure and assign PIM roles and resources and manage emergency access accounts.
+
+- Define a privilege access strategy for admin users. 
+
+- configure PIM for Azure roles and resources
+
+- Assign roles
+
+- Manage PIM requests.
+
+- Configure privileged access groups. 
+
+Overall, protects data and resources from getting into the wrong hands. One can also track and manage oversight for what users are doing with their admin privileges. 
+
+## Define a privileged access strategy for admin users
+
+  Key features:
+   
+    Provides time based and approval based role activation to access resources. This helps to mitigate the risks of excessive, unnecessary, or misued access permissions on resources that are important.
+
+    - Requires approval to activate privileged roles
+
+    - Enforce Azure MFA to activate any roles
+
+    - Use justification to understand why users activiate 
+
+    - Get notifications when privileged roles are activated.
+
+    - Conduct access reviews to ensure users still need roles
+
+    - Download audit history for internal or external audit. 
+
+    - PIM requires a premium p2 license
+
+# Identify your stakeholders:
+
+SO = Approval on this project
+
+R = Review this project and provide input
+
+I = Informed of this project
+
+
+## Stakeholders: Privileged Identity Management for Microsoft Entra Roles.
+
+
+Name and email for Name
+
+Role = Identity architect or Azure Global Admin 
+
+A representative from the Identity management team in charge of defining how to align this change with the core Identity management infrastructure in your organization.
+
+Action: SO/R/I
+
+
+Name: Name and email
+
+Role: Service owner or Line manager
+
+- A rep from IT owners of a service or a group of services. Key in making decisions and helping to roll out PIM for their team.
+
+Action: SO/R/I
+
+Name: Name and email
+
+Role: Security Owner
+
+A rep from the security team who can approve that the plan meets the security requirements of an org.
+
+Action: SO/R
+
+Name: Name and email
+
+Role: IT support manager/ Helpdesk
+
+A rep from the IT support organization who can provide feedback on supportability of this change from a helpdesk perspective
+
+Action: R/I
+
+Name: Name and email for pilot users
+
+Role: Privileged role users- 
+
+The group of users for which privileged identity management is implemented. They will need to know how to activate their roles once PIM is implemented. 
+
+Action: I
+
+# Best practice:
+
+Only have one global admin and ideally make the accounts have least privilege. You can assign built in roles or custom roles. 
+
+## Microsoft Entra roles top ten
+
+1. Global admin
+
+2. Security Admin
+
+3. User admin
+
+4. Exchange Admin
+
+5. Sharepoint Admin
+
+6. Intune Admin
+
+7. Security reader
+
+8. Billing Admin
+
+9. Skype for business Admin
+
+## Aduits 
+
+Audits are helpful to track who did what and when. They are organized by groups and you can see by user as well.
+
+Go to groups and then select activity, there will be a Resource aduit section
+
+## Emergency access accounts:
+
+You want at least two emergency accounts, and you want to ensure that one of the, has a differing MFA to prevent lockouts and also one account should be excluded from MFA
